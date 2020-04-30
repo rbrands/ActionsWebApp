@@ -1,4 +1,4 @@
-name: ASP.NET web app
+name: ASP.NET web app core
 
 on:
   push:
