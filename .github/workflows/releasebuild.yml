@@ -7,7 +7,7 @@ on:
 jobs:
   build-and-deploy:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -15,14 +15,14 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.201
-    - name: Install dependencies
-      run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet build --configuration Release
+    - name: dotnet publish
+      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
     - name: 'Run Azure webapp deploy action using publish profile credentials'
       uses: azure/webapps-deploy@v2
       with: 
-         app-name: actionswebapp
-         publish-profile: ${{ secrets.azureReleasePublishProfile }}      
+         app-name: 'actionswebapp'
+         slot-name: 'release'
+         publish-profile: ${{ secrets.azureReleasePublishProfile }}
+         package: ${{env.DOTNET_ROOT}}/myapp      
