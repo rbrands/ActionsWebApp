@@ -1,4 +1,4 @@
-![ASP.NET web app core](https://github.com/rbrands/ActionsWebApp/workflows/ASP.NET%20web%20app%20core/badge.svg)
+![Deploy "master" to slot "dev"](https://github.com/rbrands/ActionsWebApp/workflows/Deploy%20%22master%22%20to%20slot%20%22dev%22/badge.svg)
 
 # ActionsWebApp
 Demo App to play around with GitHub Actions
