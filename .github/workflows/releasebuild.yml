@@ -1,4 +1,4 @@
-name: ASP.NET Release Build and Deploy
+name: Deploy "releases/*" to slot "release"
 
 on:
   push:
